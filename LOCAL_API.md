@@ -29,6 +29,12 @@ export VOICE_ROOT=/absolute/path/to/voice/files
 uvicorn api_server:app --host 0.0.0.0 --port 8000
 ```
 
+For persistent host startup on this Mac, use:
+
+```bash
+scripts/start-local-api.sh
+```
+
 ## 3) Smoke tests
 
 ```bash
