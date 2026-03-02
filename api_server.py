@@ -29,7 +29,7 @@ class TTSRequest(BaseModel):
     norm_loudness: bool = Field(default=True)
 
 
-app = FastAPI(title="Chatterbox Local API", version="0.1.0")
+app = FastAPI(title="Chatterbox Local API", version="0.1.1")
 
 _model = None
 _model_lock = Lock()
@@ -114,6 +114,20 @@ def _resolve_voice_path(voice_key: str) -> tuple[str, Optional[str]]:
             "Provide an absolute/local path, set VOICE_ROOT, or configure VOICE_S3_* env vars."
         ),
     )
+
+
+@app.get("/")
+def root():
+    return {
+        "service": "chatterbox-local-api",
+        "ok": True,
+        "version": "0.1.1",
+        "endpoints": {
+            "health": "/health",
+            "generate": "/generate",
+            "docs": "/docs",
+        },
+    }
 
 
 @app.get("/health")

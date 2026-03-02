@@ -38,6 +38,7 @@ scripts/start-local-api.sh
 ## 3) Smoke tests
 
 ```bash
+curl -s http://127.0.0.1:8000/
 curl -s http://127.0.0.1:8000/health
 ```
 
