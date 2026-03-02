@@ -46,3 +46,8 @@ checkpoints/
 
 # Ignore generated sample .wav files
 **/*.wav
+
+# Local API runtime artifacts
+.venv/
+.api.log
+.api.pid
